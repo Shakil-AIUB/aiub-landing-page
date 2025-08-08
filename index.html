@@ -3,11 +3,461 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AIUB - American International University-Bangladesh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        aiubBlue: '#0c2340',
+                        aiubRed: '#e63946',
+                        aiubLight: '#f1faee',
+                        aiubTeal: '#a8dadc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Roboto Slab', serif;
+        }
+        
+        .hero-pattern {
+            background: linear-gradient(rgba(12, 35, 64, 0.85), rgba(12, 35, 64, 0.95)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .campus-life {
+            background: url('https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .news-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            line-height: 1;
+        }
+        
+        .aiub-map {
+            filter: grayscale(100%) contrast(130%) brightness(90%);
+        }
+    </style>
 </head>
-<body>
-    Hello, World!
-    I'm shakil.
-    
+<body class="bg-gray-50">
+    <!-- Top Bar -->
+    <div class="bg-aiubBlue text-white py-2 text-sm">
+        <div class="container mx-auto px-4 flex justify-between">
+            <div class="flex space-x-4">
+                <span><i class="fas fa-phone-alt mr-2"></i> +880 2 8870422</span>
+                <span><i class="fas fa-envelope mr-2"></i> info@aiub.edu</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-aiubTeal"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-aiubTeal"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-aiubTeal"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="hover:text-aiubTeal"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="bg-aiubRed text-white w-14 h-14 rounded-full flex items-center justify-center font-bold text-2xl mr-3">A</div>
+                    <div>
+                        <h1 class="font-bold text-xl text-aiubBlue">AIUB</h1>
+                        <p class="text-xs text-gray-600">American International University-Bangladesh</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-aiubBlue font-medium hover:text-aiubRed">Home</a>
+                    <a href="#about" class="text-aiubBlue font-medium hover:text-aiubRed">About</a>
+                    <a href="#programs" class="text-aiubBlue font-medium hover:text-aiubRed">Programs</a>
+                    <a href="#admission" class="text-aiubBlue font-medium hover:text-aiubRed">Admission</a>
+                    <a href="#campus" class="text-aiubBlue font-medium hover:text-aiubRed">Campus</a>
+                    <a href="#news" class="text-aiubBlue font-medium hover:text-aiubRed">News</a>
+                    <a href="#contact" class="text-aiubBlue font-medium hover:text-aiubRed">Contact</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-aiubBlue">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden py-4 border-t">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="text-aiubBlue font-medium hover:text-aiubRed">Home</a>
+                    <a href="#about" class="text-aiubBlue font-medium hover:text-aiubRed">About</a>
+                    <a href="#programs" class="text-aiubBlue font-medium hover:text-aiubRed">Programs</a>
+                    <a href="#admission" class="text-aiubBlue font-medium hover:text-aiubRed">Admission</a>
+                    <a href="#campus" class="text-aiubBlue font-medium hover:text-aiubRed">Campus</a>
+                    <a href="#news" class="text-aiubBlue font-medium hover:text-aiubRed">News</a>
+                    <a href="#contact" class="text-aiubBlue font-medium hover:text-aiubRed">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Shaping Tomorrow's Leaders</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8">American International University-Bangladesh (AIUB) - A premier institution for higher education in Bangladesh</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#admission" class="bg-aiubRed hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">Apply Now</a>
+                <a href="#programs" class="bg-transparent border-2 border-white hover:bg-white hover:text-aiubBlue font-bold py-3 px-8 rounded-full transition duration-300">Explore Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-aiubLight">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="stat-number font-bold text-aiubBlue">20,000+</div>
+                    <div class="text-gray-700">Students</div>
+                </div>
+                <div>
+                    <div class="stat-number font-bold text-aiubBlue">500+</div>
+                    <div class="text-gray-700">Faculty Members</div>
+                </div>
+                <div>
+                    <div class="stat-number font-bold text-aiubBlue">4</div>
+                    <div class="text-gray-700">Faculties</div>
+                </div>
+                <div>
+                    <div class="stat-number font-bold text-aiubBlue">25+</div>
+                    <div class="text-gray-700">Years of Excellence</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-aiubBlue mb-4">About AIUB</h2>
+                <div class="w-20 h-1 bg-aiubRed mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-aiubBlue mb-4">Our History & Mission</h3>
+                    <p class="text-gray-700 mb-4">Established in 1994, American International University-Bangladesh (AIUB) has emerged as one of the leading private universities in Bangladesh. Founded by Dr. Anwarul Abedin, AIUB is committed to providing quality education to create future leaders.</p>
+                    <p class="text-gray-700 mb-6">Our mission is to foster the intellectual and personal growth of students through excellence in teaching, research, and service. We strive to create an environment that encourages critical thinking, creativity, and lifelong learning.</p>
+                    <a href="#" class="inline-block bg-aiubBlue hover:bg-blue-900 text-white font-bold py-3 px-6 rounded transition duration-300">Learn More</a>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-48"></div>
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64 mt-8"></div>
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64"></div>
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-48 mt-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-aiubBlue mb-4">Academic Programs</h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">AIUB offers a wide range of undergraduate and graduate programs through its four faculties</p>
+                <div class="w-20 h-1 bg-aiubRed mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Program Card 1 -->
+                <div class="program-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-aiubBlue rounded-full flex items-center justify-center text-white mb-6">
+                            <i class="fas fa-laptop-code text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-aiubBlue mb-3">Faculty of Science & Technology</h3>
+                        <ul class="text-gray-700 space-y-2">
+                            <li>• B.Sc. in CSE</li>
+                            <li>• B.Sc. in CS</li>
+                            <li>• B.Sc. in EEE</li>
+                            <li>• M.Sc. in CS</li>
+                        </ul>
+                    </div>
+                    <div class="px-6 py-4 bg-aiubLight">
+                        <a href="#" class="text-aiubRed font-semibold flex items-center">
+                            Explore Programs <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program Card 2 -->
+                <div class="program-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-aiubRed rounded-full flex items-center justify-center text-white mb-6">
+                            <i class="fas fa-chart-line text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-aiubBlue mb-3">Faculty of Business Administration</h3>
+                        <ul class="text-gray-700 space-y-2">
+                            <li>• BBA</li>
+                            <li>• MBA</li>
+                            <li>• EMBA</li>
+                            <li>• MBM</li>
+                        </ul>
+                    </div>
+                    <div class="px-6 py-4 bg-aiubLight">
+                        <a href="#" class="text-aiubRed font-semibold flex items-center">
+                            Explore Programs <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program Card 3 -->
+                <div class="program-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-aiubTeal rounded-full flex items-center justify-center text-aiubBlue mb-6">
+                            <i class="fas fa-book text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-aiubBlue mb-3">Faculty of Arts & Social Science</h3>
+                        <ul class="text-gray-700 space-y-2">
+                            <li>• B.A. in English</li>
+                            <li>• M.A. in English</li>
+                            <li>• LLB (Hons)</li>
+                            <li>• LLM</li>
+                        </ul>
+                    </div>
+                    <div class="px-6 py-4 bg-aiubLight">
+                        <a href="#" class="text-aiubRed font-semibold flex items-center">
+                            Explore Programs <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Program Card 4 -->
+                <div class="program-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-aiubBlue rounded-full flex items-center justify-center text-white mb-6">
+                            <i class="fas fa-cogs text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-aiubBlue mb-3">Faculty of Engineering</h3>
+                        <ul class="text-gray-700 space-y-2">
+                            <li>• B.Sc. in CSE</li>
+                            <li>• B.Sc. in EEE</li>
+                            <li>• B.Sc. in Civil Eng.</li>
+                            <li>• B.Sc. in ME</li>
+                        </ul>
+                    </div>
+                    <div class="px-6 py-4 bg-aiubLight">
+                        <a href="#" class="text-aiubRed font-semibold flex items-center">
+                            Explore Programs <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Life Section -->
+    <section id="campus" class="campus-life py-20 text-white relative">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Campus Life</h2>
+                <p class="max-w-2xl mx-auto">Experience the vibrant and diverse community at AIUB</p>
+                <div class="w-20 h-1 bg-aiubRed mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20">
+                    <div class="text-4xl text-aiubTeal mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Student Clubs</h3>
+                    <p>Join over 30 student clubs and organizations ranging from robotics to debate, photography to cultural clubs.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20">
+                    <div class="text-4xl text-aiubTeal mb-4">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Sports & Recreation</h3>
+                    <p>State-of-the-art sports facilities including indoor gymnasium, basketball court, cricket field, and more.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20">
+                    <div class="text-4xl text-aiubTeal mb-4">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Events & Workshops</h3>
+                    <p>Regular seminars, workshops, cultural festivals, and tech competitions throughout the year.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Events -->
+    <section id="news" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-aiubBlue mb-4">News & Events</h2>
+                <div class="w-20 h-1 bg-aiubRed mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- News Card 1 -->
+                <div class="news-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="bg-gray-200 border-2 border-dashed w-full h-48"></div>
+                    <div class="p-6">
+                        <div class="text-sm text-aiubRed mb-2">June 15, 2023</div>
+                        <h3 class="text-xl font-bold text-aiubBlue mb-3">AIUB Team Wins National Robotics Championship</h3>
+                        <p class="text-gray-700 mb-4">The AIUB Robotics Club secured first place in the national robotics competition held at BUET.</p>
+                        <a href="#" class="text-aiubRed font-semibold">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- News Card 2 -->
+                <div class="news-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="bg-gray-200 border-2 border-dashed w-full h-48"></div>
+                    <div class="p-6">
+                        <div class="text-sm text-aiubRed mb-2">May 28, 2023</div>
+                        <h3 class="text-xl font-bold text-aiubBlue mb-3">New Research Center Inaugurated</h3>
+                        <p class="text-gray-700 mb-4">AIUB has launched a new AI and Data Science research center with state-of-the-art facilities.</p>
+                        <a href="#" class="text-aiubRed font-semibold">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- News Card 3 -->
+                <div class="news-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+                    <div class="bg-gray-200 border-2 border-dashed w-full h-48"></div>
+                    <div class="p-6">
+                        <div class="text-sm text-aiubRed mb-2">May 10, 2023</div>
+                        <h3 class="text-xl font-bold text-aiubBlue mb-3">International Conference on Sustainable Development</h3>
+                        <p class="text-gray-700 mb-4">AIUB to host international conference with researchers from 15 countries participating.</p>
+                        <a href="#" class="text-aiubRed font-semibold">Read More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-aiubBlue hover:bg-blue-900 text-white font-bold py-3 px-8 rounded-full transition duration-300">View All News</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-aiubBlue text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-aiubRed text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-3">A</div>
+                        <div>
+                            <h3 class="font-bold text-xl">AIUB</h3>
+                            <p class="text-sm opacity-80">American International University-Bangladesh</p>
+                        </div>
+                    </div>
+                    <p class="opacity-80 mb-6">Premier institution for higher education in Bangladesh committed to academic excellence and innovation.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-aiubTeal"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-aiubTeal"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-aiubTeal"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-aiubTeal"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="hover:text-aiubTeal"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="opacity-80 hover:opacity-100 hover:text-aiubTeal">About AIUB</a></li>
+                        <li><a href="#" class="opacity-80 hover:opacity-100 hover:text-aiubTeal">Academics</a></li>
+                        <li><a href="#" class="opacity-80 hover:opacity-100 hover:text-aiubTeal">Admission</a></li>
+                        <li><a href="#" class="opacity-80 hover:opacity-100 hover:text-aiubTeal">Research</a></li>
+                        <li><a href="#" class="opacity-80 hover:opacity-100 hover:text-aiubTeal">Campus Life</a></li>
+                        <li><a href="#" class="opacity-80 hover:opacity-100 hover:text-aiubTeal">Alumni</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-aiubTeal"></i>
+                            <span>408/1, Kuratoli, Khilkhet, Dhaka 1229, Bangladesh</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-aiubTeal"></i>
+                            <span>+880 2 8870422</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-aiubTeal"></i>
+                            <span>info@aiub.edu</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-globe mr-3 text-aiubTeal"></i>
+                            <span>www.aiub.edu</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Campus Location</h4>
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-48 aiub-map"></div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-sm opacity-80">
+                <p>© 2023 American International University-Bangladesh (AIUB). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
